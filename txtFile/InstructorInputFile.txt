@@ -1,0 +1,7 @@
+1x10^10
+Standard Isotope: Al-27
+5,1.6870087,1.33E+02,1778.85
+Sample Isotope: V-51
+5,9.917221,225,1434.06
+Sample Isotope: Ag-107
+5,45.217957,145,632.98

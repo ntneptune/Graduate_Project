@@ -1,0 +1,7 @@
+﻿1x10^12
+Standard Isotope: Al-27
+5,1.6870087,1.33E+02,1778.85
+Sample Isotope: Co-59
+5,43.449116,630,58.603
+Sample Isotope: Ag-107
+5,45.217957,145,632.98
