@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -84,15 +84,17 @@ namespace Interface_NAA
             int No = 1;
             foreach (FileInfo file in Files)
             {
+                string flux = File.ReadAllLines(path + "\\" + file.Name).Take(1).First();
                 string stdEleline = File.ReadLines(path + "\\" + file.Name).Skip(1).Take(1).First();
                 string stdMassline = File.ReadLines(path + "\\" + file.Name).Skip(2).Take(1).First();
                 string stdEle = stdEleline.Split(':')[1];
                 string Mass = stdMassline.Split(',')[0];
+                flux = flux.Replace("x10^", "E");
                 txtFileDetail.Add(new Class.InstructorFiletxt
                 {
                     ID = No,
                     Filename = file.Name,
-                    Detail = "STD_ELE : " + stdEle + "  Mass : " + Mass 
+                    Detail = "STD_ELE : " + stdEle + "  Mass : " + Mass +"  Flux : " +flux
 
                 });
                 No += 1;
