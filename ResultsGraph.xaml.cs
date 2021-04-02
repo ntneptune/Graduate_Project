@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -143,17 +143,28 @@ namespace Interface_NAA
               .X(value => value.EnergyPoint) //a 10 base log scale in the X axis
               .Y(value => Math.Log(value.CountsPoint, Base));
 
+            //MinAxisValue = double.NegativeInfinity;
+            MinAxisValue = 0;
             double maxcounts = counts.Max<double>();
             MaxAxisValue = Math.Log(maxcounts, Base) + Math.Log(maxcounts, Base)/(double)3;
-           
+         
 
 
 
 
             SeriesCollection = new SeriesCollection(mapper);
+            int n = counts.Count;
+            for (int index = 0; index < n; index++)
+            {
+                if(counts[index] <= 1)
+                {
+                    counts[index] = 1;
+                }
+            }
         
             for (int index = 0; index < Element.Count; index++)
             {
+                /*
                 var x0 = Energy[index];
                 var lowerE0 = x0 - 10;
                 var upperE0 = x0 + 10;
@@ -162,38 +173,100 @@ namespace Interface_NAA
                 double sigma = 11;
                 var A = counts[index] / (20.0 - 2000.0/3.0/Math.Pow(sigma, 2));
                 var Nd = np.power((x - x0) / sigma,np.array(2)); // natural distribution
-                var y = A * (1 - Nd);
-                var Ar = 0.5 * (y[":-1"] + y["1:"]) * (x["1:"] - x[":-1"]);
-                double Area = (double)np.sum(Ar);
-                
+                //var y = A * (1 - Nd);
+                var y_ = A * (1 - Nd);
+                //var Ar = 0.5 * (y[":-1"] + y["1:"]) * (x["1:"] - x[":-1"]);
+                var y = y_[y_ >= 1];
+                double Area = 1;
+                //double Area = (double)np.sum(Ar);
+                */
 
                 var Linepoint = new ChartValues<Class.DataLinePoint>();
+                var Columnpoint = new ChartValues<Class.DataLinePoint>();
                 var temporal_Lp = new List<Class.DataLinePoint>();
-
+                var temporal_Cp = new List<Class.DataLinePoint>();
+                /*
                 for (int i = 0; i < y.size; i++)
                 {
-                    
+                    temporal_Cp.Add(new Class.DataLinePoint() { CountsPoint = (double)y[i] });
                     temporal_Lp.Add(new Class.DataLinePoint() { EnergyPoint = (double)x[i], CountsPoint = (double)y[i], ShowEnergy = Energy[index], ShowArea = Area });
                 }
 
                 Linepoint.AddRange(temporal_Lp);
-                //Linepoint.Add(new Class.DataLinePoint() { EnergyPoint = (double)Energy[index], CountsPoint = counts[index] });
+                Columnpoint.AddRange(temporal_Cp);
+                */
+                Linepoint.Add(new Class.DataLinePoint() { EnergyPoint = (double)Energy[index], CountsPoint = counts[index] });
                 
                 string name = index == 0? "Std Ele" :"Ele" + index.ToString();
+
+
                 SeriesCollection.Add(new LineSeries
                 {
                     Title = name,
                     Values = Linepoint,
-                    PointGeometry = null
+                   
                   
                     
                 });
+
+              
+
+
+
                 //Stroke = Brushes.IndianRed
                 //PointGeometry = null,
                 //Fill = Brushes.Transparent
+                //Labels = new[] { "Maria", "Susan", "Charles", "Frida" };
+            }
+            /*
+            var x0_ = Energy[0];
+            var lowerE0_ = x0_ - 10;
+            var upperE0_ = x0_ + 10;
+            var x_ = np.arange(lowerE0_, upperE0_, 1);
+            // var x_p = np.power((x - Energy[index]), np.array(2));
+            double sigma_ = 11;
+            var A_ = counts[0] / (20.0 - 2000.0 / 3.0 / Math.Pow(sigma_, 2));
+            var Nd_ = np.power((x_ - x0_) / sigma_, np.array(2)); // natural distribution
+            var y_ = A_ * (1 - Nd_);
+
+            var Columnpoint_ = new ChartValues<Class.DataLinePoint>();
+          
+            var temporal_Cp_ = new List<Class.DataLinePoint>();
+
+            for (int i = 0; i < y_.size; i++)
+            {
+                temporal_Cp_.Add(new Class.DataLinePoint() { CountsPoint = (double)y_[i] });
+             
             }
 
+
+            Columnpoint_.AddRange(temporal_Cp_);
+
+            var v = new double[20];
+            for (var i = 0; i < v.Length; i++)
+            {
+                v[i] = (double)y_[i];
+                //Labels.Add(String.Format("{0} - {1}", texts[i % texts.Count], i));
+                
+            }
+
+            Datapoint = new ChartValues<double>(v);
+            SeriesCollection.Add(new ColumnSeries
+            {
+
+                //Values = Columnpoint,
+                Values = Datapoint,
+
+                Width = 1,
+                Fill = Brushes.IndianRed
+
+
+
+            });
+
+            */
             //FormatterX = value => Math.Pow(Base, value).ToString("N");
+
             FormatterX = value => value.ToString("N");
             FormatterY = value => Math.Pow(Base, value).ToString("0.##e+00");
             DataContext = this;
@@ -210,14 +283,15 @@ namespace Interface_NAA
 
 
         }
-        public SeriesCollection SeriesCollection { get; set; }
-        public ChartValues<Class.DataLinePoint> Datapoints{ get; set; }     
+        public SeriesCollection SeriesCollection { get; set; } 
         public Func<double, string> FormatterX { get; set; }
         public Func<double, string> FormatterY { get; set; }
+        public string[] Labels { get; set; }
         public double Base { get; set; }
 
         public double MaxAxisValue { get; set; }
- 
+        public double MinAxisValue { get; set; }
+        public ChartValues<double> Datapoint { get; set; }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
