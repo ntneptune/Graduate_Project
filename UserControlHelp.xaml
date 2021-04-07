@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="Interface_NAA.UserControlHelp"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Interface_NAA"
+             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+              d:DesignHeight="500" d:DesignWidth="1024">
+    <Grid Background="{x:Null}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="7"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="50"/>
+
+        </Grid.RowDefinitions>
+
+        <Border  Grid.Row="1" Grid.Column="2" Opacity="0.9"  VerticalAlignment="Stretch"   >
+            <Border.Background>
+                <SolidColorBrush Color="#FFCFCFCF" Opacity="0.9"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal" Background="{x:Null}" Margin="10">
+                <TextBlock Text="Q." VerticalAlignment="Center" FontSize="30" Margin="0,5" Foreground="#FFE60011"/>
+            </StackPanel>
+            
+        </Border>
+        <Border  Grid.Row="1" Grid.Column="1"  VerticalAlignment="Stretch" Background="#FFE60011">
+        </Border>
+        <Border  Grid.Row="2" Grid.Column="2"  VerticalAlignment="Stretch" >
+            <Border.Background>
+                <SolidColorBrush Color="White" Opacity="0.9"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal" Background="{x:Null}" Margin="10">
+                <TextBlock Text="A." VerticalAlignment="Center" FontSize="30" Margin="0,5" Foreground="#FF9A9A9A"/>
+            </StackPanel>
+        </Border>
+        <Border  Grid.Row="2" Grid.Column="1"  VerticalAlignment="Stretch" Background="#FF9A9A9A">
+        </Border>
+        <Border  Grid.Row="4" Grid.Column="2"  VerticalAlignment="Stretch" >
+            <Border.Background>
+                <SolidColorBrush Color="#FFCFCFCF" Opacity="0.9"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal" Background="{x:Null}" Margin="10">
+                <TextBlock Text="Q." VerticalAlignment="Center" FontSize="30" Margin="0,5" Foreground="#FFE60011"/>
+            </StackPanel>
+        </Border>
+        <Border  Grid.Row="4" Grid.Column="1"  VerticalAlignment="Stretch" Background="#FFE60011">
+        </Border>
+        <Border  Grid.Row="5" Grid.Column="2"  VerticalAlignment="Stretch" >
+            <Border.Background>
+                <SolidColorBrush Color="White" Opacity="0.9"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal" Background="{x:Null}" Margin="10">
+                <TextBlock Text="A." VerticalAlignment="Center" FontSize="30" Margin="0,5" Foreground="#FF9A9A9A"/>
+            </StackPanel>
+        </Border>
+        <Border  Grid.Row="5" Grid.Column="1"  VerticalAlignment="Stretch" Background="#FF9A9A9A">
+        </Border>
+        <Border  Grid.Row="7" Grid.Column="2"  VerticalAlignment="Stretch" >
+            <Border.Background>
+                <SolidColorBrush Color="#FFCFCFCF" Opacity="0.9"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal" Background="{x:Null}" Margin="10">
+                <TextBlock Text="Q." VerticalAlignment="Center" FontSize="30" Margin="0,5" Foreground="#FFE60011"/>
+            </StackPanel>
+        </Border>
+        <Border  Grid.Row="7" Grid.Column="1"  VerticalAlignment="Stretch" Background="#FFE60011">
+        </Border>
+        <Border  Grid.Row="8" Grid.Column="2"  VerticalAlignment="Stretch" >
+            <Border.Background>
+                <SolidColorBrush Color="White" Opacity="0.9"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal" Background="{x:Null}" Margin="10">
+                <TextBlock Text="A." VerticalAlignment="Center" FontSize="30" Margin="0,5" Foreground="#FF9A9A9A"/>
+            </StackPanel>
+        </Border>
+        <Border  Grid.Row="8" Grid.Column="1"  VerticalAlignment="Stretch" Background="#FF9A9A9A">
+        </Border>
+    </Grid>
+</UserControl>
