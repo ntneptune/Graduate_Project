@@ -1,4 +1,4 @@
-﻿using Dragablz;
+using Dragablz;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +27,7 @@ namespace Interface_NAA
             InitializeComponent();            
             ListUc.Add(new UserControlInstructor());
             ListUc.Add(new UserControlUser());
+            ListUc.Add(new UserControlHelp());
            
         }
 
@@ -69,7 +70,8 @@ namespace Interface_NAA
                         //objuser.Show();
                         
                         break;
-                    case 3: //HELP
+                    case 3: //HELP or FAQ
+                        InitializeFAQ();
                         //MessageBox.Show("HELP");
                         break;
                     case 4: //Github
@@ -95,13 +97,17 @@ namespace Interface_NAA
 
         private void InitializeInstructor()
         {
-            //UserControl uc = new UserControlInstructor();
+            
             SwitchScreen(ListUc[0]);
         }
         private void InitializeUser()
         {
-            //UserControl uc = new UserControlUser();
+           
             SwitchScreen(ListUc[1]);
+        }
+        private void InitializeFAQ()
+        {
+            SwitchScreen(ListUc[2]);
         }
     }
 }
