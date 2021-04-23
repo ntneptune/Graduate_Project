@@ -1,11 +1,10 @@
-﻿<UserControl x:Class="Interface_NAA.UserControlInstructor"
+<UserControl x:Class="Interface_NAA.UserControlInstructor"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Interface_NAA"
-             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
-             
+             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"   
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="1024">
     <Grid Background="White">
@@ -28,15 +27,15 @@
             </StackPanel>
         </Border>
         <StackPanel Grid.Column="1" Grid.Row="0">
-            <TextBox x:Name="Neutronflux"  materialDesign:HintAssist.Hint=" e.g. 1x10^9" TextWrapping="Wrap" FontFamily="Ubuntu Mono" FontSize="25" Background="#FF673AB7" Foreground="White" SelectionBrush="#FFF7F7F7" Height="45" Width="350" HorizontalAlignment="Left"
-            Margin="0,30" RenderTransformOrigin="0.5,1.294" TextChanged="Neutronflux_TextChanged" CaretBrush="#FFF8F7F9"/>
+            <TextBox x:Name="TB_Neutronflux"  materialDesign:HintAssist.Hint=" e.g. 1x10^9" TextWrapping="Wrap" FontFamily="Ubuntu Mono" FontSize="25" Background="#FF673AB7" Foreground="White" SelectionBrush="#FFF7F7F7" Height="45" Width="350" HorizontalAlignment="Left"
+            Margin="0,30" RenderTransformOrigin="0.5,1.294" CaretBrush="#FFF8F7F9"/>
 
-            <TextBox x:Name="stdisotope"  materialDesign:HintAssist.Hint=" e.g. Al-27,10" TextWrapping="Wrap" FontFamily="Ubuntu Mono" FontSize="25" Background="#FF673AB7" Foreground="White" SelectionBrush="#FFEFF1F1" Height="45" Width="350" HorizontalAlignment="Left"
+            <TextBox x:Name="TB_stdisotope"  materialDesign:HintAssist.Hint=" e.g. Al-27,10" TextWrapping="Wrap" FontFamily="Ubuntu Mono" FontSize="25" Background="#FF673AB7" Foreground="White" SelectionBrush="#FFEFF1F1" Height="45" Width="350" HorizontalAlignment="Left"
                 Margin="0,0" CaretBrush="#FFFAF9FD" />
-            <TextBox x:Name="samiso" materialDesign:HintAssist.Hint=" e.g. V-51,10" TextWrapping="Wrap" FontFamily="Ubuntu Mono" FontSize="25" Background="#FF673AB7" Foreground="White" SelectionBrush="#FFEAF2F9" Margin="0,30" Height="45" Width="350" HorizontalAlignment="Left" CaretBrush="#FFEDEBF1"/>
+            <TextBox x:Name="TB_sample" materialDesign:HintAssist.Hint=" e.g. V-51,10" TextWrapping="Wrap" FontFamily="Ubuntu Mono" FontSize="25" Background="#FF673AB7" Foreground="White" SelectionBrush="#FFEAF2F9" Margin="0,30" Height="45" Width="350" HorizontalAlignment="Left" CaretBrush="#FFEDEBF1"/>
 
         </StackPanel>
-        <Button x:Name="ok"  Content="Save"  FontFamily="Ubuntu Mono" FontSize="20" Click="addno_Click"
+        <Button x:Name="Save"  Content="Save"  FontFamily="Ubuntu Mono" FontSize="20" Click="Save_Click"
                     Margin="222,170,223,56"  Height="38" Width="100" Grid.Row="1" Grid.Column="1"/>
         <ListBox Name ="ListBox1" Foreground="White" HorizontalAlignment="Left" Height="208" Margin="320,15,0,0" VerticalAlignment="Top" Width="376" FontFamily="Ubuntu Mono" FontSize="25" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Background="#FF8B6AC7" />
 
@@ -45,7 +44,7 @@
             
         </Button>
 
-        <Button x:Name="add_Sam"  Height="38" Width="100"  FontFamily="Ubuntu Mono" FontSize="20" Click="addsam_Click" VerticalAlignment="Top" Margin="222,109,223,0" Grid.Row="1" Grid.Column="1">
+        <Button x:Name="Addsam"  Height="38" Width="100"  FontFamily="Ubuntu Mono" FontSize="20" Click="Addsam_Click" VerticalAlignment="Top" Margin="222,109,223,0" Grid.Row="1" Grid.Column="1">
             <DockPanel>
                 <materialDesign:PackIcon Kind="PlusBox"  Height="25" Width="25"/>
                 <TextBlock Text="Add" VerticalAlignment="Center"/>
