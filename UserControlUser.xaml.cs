@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.IO;
 using System.Linq;
-using Microsoft.VisualBasic.FileIO;
+
 
 namespace Interface_NAA
 {
@@ -58,8 +51,6 @@ namespace Interface_NAA
                 count_T = Convert.ToDouble(count_t.Text);
 
                 ResultsGraph objResultsGraph = new ResultsGraph();
-               
-                //this.Visibility = Visibility.Hidden;
                 objResultsGraph.Show();
 
             }
@@ -74,7 +65,7 @@ namespace Interface_NAA
         ObservableCollection<Class.InstructorFiletxt> txtFileDetail = new ObservableCollection<Class.InstructorFiletxt>();
         private void dgtxtFile_Initialized(object sender, EventArgs e)
         {
-            string path = "C:\\code\\C#\\Project\\Interface NAA\\Interface NAA\\txtFile";
+            string path = "Resources\\txtFile";
             DirectoryInfo d = new DirectoryInfo(@path);
             FileInfo[] Files = d.GetFiles("*.txt");
             int No = 1;
@@ -115,7 +106,7 @@ namespace Interface_NAA
                 e.Handled = true;
                 rest_t.Focus();
             }
-            if ((e.Key < Key.D0 || e.Key > Key.D9) && e.Key != Key.Back)
+            if ((e.Key < Key.D0 || e.Key > Key.D9) && e.Key != Key.Back && (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9))
             {
                 e.Handled = true;
             }
@@ -130,7 +121,7 @@ namespace Interface_NAA
                 e.Handled = true;
                 count_t.Focus();
             }
-            if ((e.Key < Key.D0 || e.Key > Key.D9) && e.Key != Key.Back)
+            if ((e.Key < Key.D0 || e.Key > Key.D9) && e.Key != Key.Back && (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9))
             {
                 e.Handled = true;
             }
@@ -145,7 +136,7 @@ namespace Interface_NAA
                 e.Handled = true;
                 confirm.Focus();
             }
-            if ((e.Key < Key.D0 || e.Key > Key.D9) && e.Key != Key.Back)
+            if ((e.Key < Key.D0 || e.Key > Key.D9) && e.Key != Key.Back && (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9))
             {
                 e.Handled = true;
             }
