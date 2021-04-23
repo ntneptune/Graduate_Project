@@ -1,7 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.IO;
@@ -84,12 +83,12 @@ namespace Interface_NAA
         {
 
 
-            //data from Ele
+            //data from txtfile
             double N_A0 = Class.NAAmath.Atomic(mass[i], A_num[i], Avg_num);
             double dc = Class.NAAmath.decay_constant(hf[i]);
             double Cs = Class.NAAmath.cross_section(cs[i]);
-            double _NA = Class.NAAmath.N_A(N_A0, irrTime, flux, Cs);
             //Constant value
+            double _NA = Class.NAAmath.N_A(N_A0, irrTime, flux, Cs);
             double NB1 = Class.NAAmath.N_B1(N_A0, irrTime, flux, Cs, dc);
             double N1 = Class.NAAmath.N_1(N_A0, flux, Cs, dc, irrTime);
             double NBmax = Class.NAAmath.N_infinity(N_A0, flux, Cs, dc, irrTime);
@@ -97,10 +96,9 @@ namespace Interface_NAA
             double P1 = NB1 / NBmax;
 
             //random M time
-            int n_Repeat = 10000000; //rand ten million time
-            double M, M23;
-            //M = (double)n_Repeat;
-            var Px_random = np.random.rand(n_Repeat);
+            int M = 10000000; //rand ten million time
+            double  M23;
+            var Px_random = np.random.rand(M);
             var Px_morethan_P_t1 = Px_random[Px_random >= P_t1];
             var time = irrTime - (np.log(1 - (Px_morethan_P_t1 - P_t1) * dc / P1)) / dc;
             double lower = irrTime + restTime;
@@ -120,7 +118,7 @@ namespace Interface_NAA
         }
         public UserControlGraph()
         {
-            readInputtxt(@"C:\\code\\C#\\Project\\Interface NAA\\Interface NAA\\txtFile\\" + UserControlUser._FILENAME);
+            readInputtxt("Resources\\txtFile\\" + UserControlUser._FILENAME);
             InitializeComponent();
 
             //montecarlo
@@ -190,8 +188,8 @@ namespace Interface_NAA
                 Linepoint.AddRange(temporal_Lp);
                 Columnpoint.AddRange(temporal_Cp);
                 */
-                Linepoint.Add(new Class.DataLinePoint() { EnergyPoint = (double)Energy[index], CountsPoint = counts[index] });
-
+                Linepoint.Add(new Class.DataLinePoint() { EnergyPoint = (double)Energy[index], CountsPoint = counts[index],ShowEnergy = (double)Energy[index],ShowCounts = counts[index] });
+                Linepoint.Add(new Class.DataLinePoint() { EnergyPoint = (double)Energy[index], CountsPoint = 1 ,ShowEnergy = (double)Energy[index],ShowCounts = counts[index]});
                 string name = index == 0 ? "Std Ele" : "Ele" + index.ToString();
 
                 if (index == 0)
@@ -200,6 +198,8 @@ namespace Interface_NAA
                     {
                         Title = name,
                         Values = Linepoint,
+                        PointGeometry = null,
+                        Stroke = Brushes.SkyBlue
 
                     });
 
@@ -210,6 +210,8 @@ namespace Interface_NAA
                     {
                         Title = name,
                         Values = Linepoint,
+                        PointGeometry = null,
+                        Stroke = Brushes.IndianRed
 
                     });
                 }
@@ -221,9 +223,6 @@ namespace Interface_NAA
 
             }
 
-
-
-            //FormatterX = value => Math.Pow(Base, value).ToString("N");
 
             FormatterX = value => value.ToString("N");
             FormatterY = value => Math.Pow(Base, value).ToString("0.##e+00");
