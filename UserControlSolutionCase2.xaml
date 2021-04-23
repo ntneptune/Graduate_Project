@@ -1,0 +1,290 @@
+﻿<UserControl x:Class="Interface_NAA.UserControlSolutionCase2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Interface_NAA"
+             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="3000" d:DesignWidth="800">
+    <!--460-->
+    <Grid Background="White" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="1300"/>
+            <!--450-->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="2" Grid.Column="1"  >
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <materialDesign:Card 
+                        VerticalAlignment="Top" Margin="8 2 8 16"
+                        Width="400"   
+                        Height="470">
+                        <Grid VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="31"/>
+                                <RowDefinition Height="120"/>
+                                <RowDefinition Height="160"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                <TextBlock 
+                                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                Margin="20 16 16 2"
+                                Text="Case II"/>
+                                <TextBlock 
+                                Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                Margin="275 0 16 2" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Text="1"/>
+                            </StackPanel>
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="1"
+                                TextWrapping="Wrap"
+                                Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                Margin="10 6 0 0" ><Run Text="Sample isotope is different from standard isotope.  (Not same energy)"/><LineBreak/>
+                            </TextBlock>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="4"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="30" >
+                                <Run Text="We can analyze from a number of daughter isotope after irradiation for a period of time."/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/NBt1.png"
+                                Stretch="Uniform"
+                                Grid.Column="0" Grid.Row="5"
+                                Width="auto"
+                                Height="120"/>
+                            <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Background="#FFDDDDDD">
+                            </Border>
+
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="6"
+                                TextWrapping="Wrap"
+                                Margin="10,11,22,0"                              
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="160">
+                                <Run Text="   NA0 = number of atoms of standard/sample isotope before irradiation"/><LineBreak/>
+                                <Run Text="   NA = number of atoms of standard/sample isotope after irradiation"/><LineBreak/>
+                                <Run Text="   NB = number of atoms of daughter isotope after irradiation time/period of time"/><LineBreak/>
+                                 <materialDesign:PackIcon Kind="SigmaLower" Opacity="0.7" Margin="10,0,0,-5"/>
+                                 = neutron cross section of standard/sample isotope @0.025 eV neutron<LineBreak/>
+                                <materialDesign:PackIcon Kind="Null"  Opacity="0.7" Margin ="10,0,0,-5"/>
+                                <Run Text="= flux neutron"/><LineBreak/>
+                                <Run Text="   t1 = irradiation time"/><LineBreak/>
+                            </TextBlock>
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card 
+                        VerticalAlignment="Top" Margin="8 2 8 16"
+                        Width="400"   
+                        Height="390">
+                        <Grid VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="120"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                <TextBlock 
+                                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                Margin="20 16 16 2"
+                                Text="Case II"/>
+                                <TextBlock 
+                                Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                Margin="275 0 16 2" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Text="3"/>
+                            </StackPanel>
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="1"
+                                TextWrapping="Wrap"
+                                Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                Margin="10 6 0 0" ><Run Text="Sample isotope is different from standard isotope.  (Not same energy)"/><LineBreak/>
+                            </TextBlock>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="4"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top"  >
+                                <Run Text="However, in the real situation we should consider the efficiency of detector and detector system impact from environment. In this simulation we assume that there needs only an efficiency in the equation which is ε0. Put it in the equation and we will get:"/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/FinalEquation.png"
+                                Stretch="Uniform"
+                                Margin="0,0,0,10"
+                                Grid.Column="0" Grid.Row="5"
+                                Width="auto"
+                                Height="120"/>
+                            <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Background="#FFDDDDDD">
+                            </Border>
+
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="5" Grid.RowSpan="2"
+                                TextWrapping="Wrap"
+                                Margin="10,100,22,0"                              
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" >
+                                <Run Text="   While we will calculate the efficiency from standard isotope which we already know mass, half-life, neutron cross section, net peak, and flux neutron. Consequently, we will be able to use the efficiency "/><LineBreak/>
+                            </TextBlock>
+                        </Grid>
+                    </materialDesign:Card>
+
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <materialDesign:Card 
+                        VerticalAlignment="Top" Margin="8 2 8 16"
+                        Width="310"   
+                        Height="485">
+                        <Grid VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="110"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                <TextBlock 
+                                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                Margin="20 16 16 2"
+                                Text="Case II"/>
+                                <TextBlock 
+                                Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                Margin="185 0 16 2" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Text="2"/>
+                            </StackPanel>
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="1"
+                                TextWrapping="Wrap"
+                                Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                Margin="10 6 0 0" ><Run Text="Sample isotope is different from standard isotope.  (Not same energy)"/><LineBreak/>
+                            </TextBlock>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="4"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="50" >
+                                <Run Text="Then after isotope has been irradiated, daughter isotope will decay gamma ray and the number of atoms of isotope will decrease."/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/NBt1+t2.png"
+                                Stretch="Uniform"
+                                Grid.Column="0" Grid.Row="5"
+                                Width="auto"  Margin="0,0,0,30"
+                                Height="120"/>
+                            <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Background="#FFDDDDDD">
+                            </Border>
+
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="6"
+                                TextWrapping="Wrap"
+                                Margin="10,11,22,0"                              
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="160">
+                                <Run Text="   t2 = rest time"/><LineBreak/>
+                                <Image   Margin="10,0,0,-7"    Source="Resources/Equation/Ramda.png" Height="20" Width="auto" Opacity="0.7"/>
+                                <Run Text="= decay constant of daughter isotope"/><LineBreak/>
+                            </TextBlock>
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="7"
+                                TextWrapping="Wrap"
+                                Margin="10,11,22,0"                              
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="50">
+                                <Run Text="   After that, a number of atoms of daughter isotope will decrease due to count time."/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/NBt1+t2+t3.png"
+                                Stretch="Uniform"
+                                Grid.Column="0" Grid.Row="8"
+                                Width="auto"  Margin="0,0,0,30"
+                                Height="120"/>
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="8" Grid.RowSpan="2"
+                                TextWrapping="Wrap"
+                                Margin="10,45,22,0"                              
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="50">
+                                <Run Text="   t3 = count time"/><LineBreak/>
+                            </TextBlock>
+
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card 
+                        VerticalAlignment="Top" Margin="8 0 8 16"
+                        Width="310"   
+                        Height="160">
+                        <Grid VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Grid.Column="0"
+                                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                Margin="20 16 16 2"
+                                Text="Tips :"/>
+                            <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Background="#FFDDDDDD">
+                            </Border>
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="2"
+                                TextWrapping="Wrap"
+                                Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                Margin="10 6 0 0" ><Run Text="to calculate mass of sample isotope.        (This procedure may need to calculate by Wolfram-Alpha or calculator)"/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/NBt1+t2.png"
+                                Stretch="Uniform"
+                                Grid.Column="0" Grid.Row="5"
+                                Width="auto"  Margin="0,0,0,30"
+                                Height="120"/>
+                       
+                        </Grid>
+                    </materialDesign:Card>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

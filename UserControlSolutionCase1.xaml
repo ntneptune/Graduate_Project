@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="Interface_NAA.UserControlSolutionCase1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Interface_NAA"
+             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="800">
+    <!--460-->
+
+    <Grid Background="White" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="900"/>
+            <!--450-->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="2" Grid.Column="1"  >
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <materialDesign:Card 
+                        VerticalAlignment="Top" Margin="8 2 8 16"
+                        Width="400"   
+                        Height="460">
+                        <Grid VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Grid.Column="0"
+                                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                Margin="20 16 16 2"
+                                Text="Case I"/>
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="1"
+                                TextWrapping="Wrap"
+                                Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                Margin="10 6 0 0" ><Run Text="Sample isotope and standard isotope are the same isotope. (Same energy)"/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/Wx.png"
+                                Stretch="Uniform"
+                                Grid.Column="0" Grid.Row="4"
+                                Width="auto"
+                                Height="50"/>
+                            <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Background="#FFDDDDDD">
+                            </Border>
+
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="5"
+                                TextWrapping="Wrap"
+                                Margin="10,11,22,0"                              
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="100">
+                                <Run Text="   R = Net peak area."/><LineBreak/>
+                                <Run Text="   W = Weight of isotope"/><LineBreak/>
+                                <Run Text="   td1, td1 = time after irradiation"/><LineBreak/>
+                                <Run Text="   x = sample isotope"/><LineBreak/>
+                                <Run Text="   s = standard isotope"/><LineBreak/>
+                                <Run/><LineBreak/>
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal"  Grid.Column="0" Grid.Row="6">
+                                <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,11,22,0"                              
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="30" 
+                                Text="If isotope has long half-life, "
+                                />
+                                <Image
+                                Source="Resources/Equation/e_td2td1.png"
+                                Stretch="Uniform"
+                                Margin="-20,4,0,0"    
+                                VerticalAlignment="Top"
+                                Width="80"
+                                Height="30"/>
+                                <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,11,22,0"                              
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="150" >
+                                <Run Text="will be nearly 1."/><LineBreak/>
+                                </TextBlock>
+                            </StackPanel>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="7"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="30" >
+                                <Run Text="Equation could write in another format:"/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/Wx_ratio.png"
+                                Stretch="Uniform"
+                                Grid.Column="0" Grid.Row="8"
+                                Width="auto"
+                                Height="50"/>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="9"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="30" >
+                                <Run Text="Then mass of sample could calculate from these equations."/><LineBreak/>
+                            </TextBlock>
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card 
+                        VerticalAlignment="Top" Margin="8 2 8 16"
+                        Width="420"   
+                        Height="270">
+                        <Grid VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="90"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </materialDesign:Card>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
