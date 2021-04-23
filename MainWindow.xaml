@@ -34,7 +34,7 @@
                 </StackPanel>
             </materialDesign:ColorZone >
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Background="{x:Null}">
-                <Image Source="/Pics/atom2.png"  Width="30" Height="30" Margin="0,15" />
+                <Image Source="Resources/Pics/atom2.png"  Width="30" Height="30" Margin="0,15" />
                 <TextBlock Text="Neutron Activation Analysis" Margin="10,0" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Leelawadee UI Semilight"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="10,0" Background="{x:Null}" >
@@ -52,10 +52,10 @@
                 <dragablz:TabablzControl.InterTabController>
                     <dragablz:InterTabController/>
                 </dragablz:TabablzControl.InterTabController>
-                <TabItem Header="HOME"  IsSelected="True">
+                <TabItem Header="HOME"  >
 
                 </TabItem>
-                <TabItem Header="INSTRUCTOR" >
+                <TabItem Header="INSTRUCTOR"  >
 
                 </TabItem>
                 <TabItem Header="USER" >
@@ -68,12 +68,14 @@
                     <TabItem.Header>
                         <materialDesign:PackIcon Kind="Github" Foreground="White"/>
                     </TabItem.Header>
-
                 </TabItem>
             </dragablz:TabablzControl>
 
+        </Grid >
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility ="Auto">
+                <StackPanel x:Name="StackPanelMain"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+            </ScrollViewer>
         </Grid>
-        <StackPanel x:Name="StackPanelMain" Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="-3,0,3,0"/>
-
     </Grid>
 </Window>
