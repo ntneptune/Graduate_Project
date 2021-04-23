@@ -1,18 +1,9 @@
 using Dragablz;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace Interface_NAA
 {
@@ -21,13 +12,15 @@ namespace Interface_NAA
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<UserControl> ListUc = new List<UserControl>();
+        public static List<UserControl> ListUc = new List<UserControl>();
         public MainWindow()
         {
-            InitializeComponent();            
-            ListUc.Add(new UserControlInstructor());
-            ListUc.Add(new UserControlUser());
-            ListUc.Add(new UserControlHelp());
+            InitializeComponent();
+            ListUc.Add(new UserControlHome()); //0
+            ListUc.Add(new UserControlInstructor()); //1
+            ListUc.Add(new UserControlUser()); //2
+            ListUc.Add(new UserControlHelp()); //3
+       
            
         }
 
@@ -41,14 +34,7 @@ namespace Interface_NAA
         {
             DragMove();
         }
-       
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            TextBlock text = new TextBlock();
             
-        }
-
         private void tcMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int tabItem = ((sender as TabablzControl)).SelectedIndex;
@@ -57,6 +43,7 @@ namespace Interface_NAA
                 switch (tabItem)
                 {
                     case 0:    // HOME
+                        InitializeHome();
                         //MessageBox.Show("HOME");
                         break;
                     case 1:    //INSTRUCTOR
@@ -94,20 +81,23 @@ namespace Interface_NAA
                 StackPanelMain.Children.Add(screen);
             }
         }
-
+        private void InitializeHome()
+        {
+            SwitchScreen(ListUc[0]);
+        }
         private void InitializeInstructor()
         {
             
-            SwitchScreen(ListUc[0]);
+            SwitchScreen(ListUc[1]);
         }
         private void InitializeUser()
         {
            
-            SwitchScreen(ListUc[1]);
+            SwitchScreen(ListUc[2]);
         }
         private void InitializeFAQ()
         {
-            SwitchScreen(ListUc[2]);
+            SwitchScreen(ListUc[3]);
         }
     }
 }
