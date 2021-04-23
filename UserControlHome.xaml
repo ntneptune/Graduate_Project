@@ -1,0 +1,530 @@
+﻿<UserControl x:Class="Interface_NAA.UserControlHome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Interface_NAA"
+             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="2000" d:DesignWidth="1024"
+             PreviewMouseWheel="UserControl_PreviewMouseWheel">
+    <!--500-->
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Viewbox x:Name="ZoomViewbox" Stretch="Fill">
+        <Grid Background="White" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="132"/>
+            <RowDefinition Height="57"/>
+            <RowDefinition Height="1800"/>
+            <!--450-->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="48"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Margin="56,16,124,0" Height="100" Width="728">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image
+                Source="Resources/Pics/atom3.jpg"
+                Stretch="Uniform"
+                Width="100"
+                Height="100"/>
+
+            <StackPanel
+                Grid.Column="1"
+                Margin="24 0 0 0"
+                VerticalAlignment="Center">
+                <TextBlock
+                    Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                    TextWrapping="Wrap"
+                    Text="Welcome to Neutron Activation Analysis"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1" >
+            <StackPanel Orientation="Horizontal" >
+                <StackPanel Orientation="Vertical">
+                    <materialDesign:Card 
+                        VerticalAlignment="Top" Margin="8 2 8 16"
+                        Width="435"   
+                        Height="400">
+                        <Grid VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="38"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Grid.Column="0"
+                                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                Margin="20 16 16 2"
+                                Text="Direction"/>
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="1"
+                                Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                Margin="10 6 0 0"
+                                Text="For Instructor" />
+                            <TextBlock
+                                Grid.Column="1" Grid.Row="1"
+                                Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                Margin="10 6 0 0"
+                                Text="For User" />
+                            <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Background="#FFDDDDDD">
+                            </Border>
+
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="4"
+                                TextWrapping="Wrap"
+                                Margin="10,11,22,0"                              
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="260">
+                                <Run Text="1. Click 'Instructor' tab."/><LineBreak/>
+                                <Run Text="2. Fill in neutron flux in form of 1x10^10.&quot;"/><LineBreak/>
+                                <Run Text="3. Fill in standard isotope data with isotope + hyphen (-) + isotope number + comma (,) + mass(g) (e.g., Al-27,0.002)"/><LineBreak/>
+                                <Run Text="4. Fill in sample isotope data with isotope + hyphen (-) + isotope number + comma (,) + mass(g) (e.g., V-51,0.002)"/><LineBreak/>
+                                <Run Text="5. Click 'Add' button to add sample isotope."/><LineBreak/>
+                                <Run Text="6. After finishing fill in sample isotope, click 'Save' button to save data."/>
+                            </TextBlock>
+                            <TextBlock
+                                Grid.Column="1" Grid.Row="4"
+                                TextWrapping="Wrap"
+                                Margin="10,11,22,0"                              
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="174" >
+                                <Run Text="1. Click 'User' tab."/><LineBreak/>
+                                <Run Text="2. Fill in radiation time(s), rest time(s), and count time(s) in the blanks."/><LineBreak/>
+                                <Run Text="3. Choose one of the files underneath the count time block which showing neutron flux and standard isotope."/><LineBreak/>
+                                <Run Text="4. Click 'Confirm' and let the program processes until finished."/>
+                            </TextBlock>
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card 
+                        VerticalAlignment="Top" Margin="8 2 8 16"
+                        Width="435"   
+                        Height="690">
+                        <Grid VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="90"/>
+                                <RowDefinition Height="85"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="105"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="85"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                <TextBlock 
+                                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                Margin="20 16 16 2"
+                                Text="Neutron Reaction"/>
+
+                            </StackPanel>
+                            <Border Grid.Column="0" Grid.Row="1" Background="#FFDDDDDD">
+                            </Border>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                 Margin="10,0,22,0"  
+                                Grid.Column="0" Grid.Row="3"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" >
+                                <Run Text="     นิวตรอนไม่สามารถเกิดได้จากธาตุกัมมันตรังสีในธรรมชาติ นิวตรอนเกิดได้จาก  ผลิตผลจากปฏิกิริยานิวเคลียร์ฟิชชันบางตัวที่มีเวลาครึ่งชีวิตสั้นๆ และสามารถสลายตัวให้  รังสีนิวตรอน เช่น Californium-252 นิวตรอนส่วนใหญ่จะได้จากปฏิกิริยานิวเคลียร์ใน  เครื่องปฏิกรณ์ปรมาณู หรือเครื่องเร่งอนุภาค"/><LineBreak/>
+                            </TextBlock>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                 Margin="10,0,22,0"  
+                                Grid.Column="0" Grid.Row="4"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" >
+                                <Run Text="     เนื่องจากนิวตรอนไม่มีประจุ จึงง่ายที่จะทะลุทะลวงผ่านเข้าไปในนิวเคลียสของธาตุ เนื่องจากไม่มีแรงคูลอมบ์ ซึ่งเกิดจากอนุภาคของประจุชนิดเดียวกันมาขวางกั้น แต่จะมีศักย์ทางนิวเคลียร์ (nuclear potential) ซึ่งไม่เกี่ยวข้องกับประจุเมื่อเข้าใกล้นิวเคลียส ปฏิกิริยาที่เกิดจากนิวตรอนมีมากมายหลายแบบ  ที่เกิดขึ้นหลัก ๆ 4 อย่างมีดังต่อไปนี้"/><LineBreak/>
+                            </TextBlock>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                 Margin="10,0,22,0"  
+                                Grid.Column="0" Grid.Row="5"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" >
+                                <Run Text="     1.	Neutron capture : เนื่องจากนิวตรอนไม่มีประจุไฟฟ้า พวกมันจึงสามารถ แทรกตัวเข้าสู่นิวเคลียสได้ง่ายกว่าโปรตอนประจุบวก ซึ่งจะถูกไล่ออกไปโดยไฟฟ้าสถิต ทำให้เกิดการชนกันระหว่างนิวตรอนกับนิวเคลียสของอะตอมและรวมเข้าด้วยกันทำให้เกิดเป็นไอโชโทปที่ไม่เสถียรและ de-excites โดยปล่อยรังสีแกมมาหรือเบต้า เพื่อให้เกิด ความเสถียร"/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/nH.png"
+                                Stretch="Uniform"
+                                Grid.Column="0" Grid.Row="6"
+                                Width="auto"
+                                Height="40"/>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                 Margin="10,0,22,0"  
+                                Grid.Column="0" Grid.Row="7"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" >
+                                <Run Text="     2.	Transmutation : ปฏิกิริยาการแปรธาตุหลังดูดกลืนนิวตรอน เป็นการเปลี่ยนจาก นิวไคล์ดชนิดหนึ่งเป็นนิวไคล์ดอีกชนิดหนึ่ง โดยการกระตุ้นด้วยการระดมยิง(bombarding) ด้วยนิวตรอนและปลดปล่อยรังสีเบต้าออกมา"/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/nN.png"
+                                Stretch="Uniform"
+                                Grid.Column="0" Grid.Row="8"
+                                Width="auto"
+                                Height="40"/>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                 Margin="10,0,22,0"  
+                                Grid.Column="0" Grid.Row="9"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" >
+                                <Run Text="     3.	Fission reaction : ปฏิกิริยานิวเคลียร์ที่เกิดขึ้น เนื่องจาก bombard นิวตรอนเข้าไปยังนิวเคลียสของธาตุหนัก แล้วทำให้นิวเคลียร์แตกออก เป็นนิวเคลียร์ที่เล็กลงสองส่วน พร้อมกับปลดปล่อยนิวตรอนส่วนเกินและ คายพลังงานมหาศาลออกมา นิวตรอนที่เกิดขึ้นซึ่งมีพลังงานสูงจะวิ่งไปชนกับ นิวเคลียสของอะตอมที่อยู่ใกล้เคียง ทำให้เกิดปฏิกิริยาต่อเนื่องไปเป็นลูกโซ่ ซึ่งเรียกว่า ปฏิกิริยาลูกโซ่ ซึ่งทำให้ได้พลังงานมหาศาล ปกติมักเกิดกับอนุภาค Z>90"/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/nU.png"
+                                Stretch="Uniform"
+                                Grid.Column="0" Grid.Row="10"
+                                Width="auto"
+                                Height="40"/>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                 Margin="10,0,22,0"  
+                                Grid.Column="0" Grid.Row="11"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" >
+                                <Run Text="     4.	Inelastic Scattering : นิวเคลียสเป้าหมายไม่ดูดกลืนนิวตรอนเข้าไป มีการสูญเสียพลังงานของนิวตรอนกล่าวคือพลังงานจลน์จำนวนหนึ่งจะสูญเสีย ให้แก่นิวเคลียส ทำให้นิวเคลียสอยู่ในสถานะถูกกระตุ้น"/><LineBreak/>
+                            </TextBlock>
+
+
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card 
+                        VerticalAlignment="Top" Margin="8 2 8 16"
+                        Width="435"   
+                        Height="470">
+                        <Grid VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="90"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="90"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="90"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="90"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="45*"/>
+                                <ColumnDefinition Width="1"/>
+                                <ColumnDefinition Width="41*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Column="0"  Grid.ColumnSpan="3">
+                                <TextBlock 
+                                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                Margin="20 16 16 2"
+                                Text="Suitable Time"/>
+                            </StackPanel>
+                            <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Background="#FFDDDDDD">
+                            </Border>
+
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="4"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="85"  ><Run Text="     Suitable time for Al-27"/><LineBreak/><Run Text="     (flux: 1x10^10, Mass: 0.005g)"/><LineBreak/><Run Text="     Irr time: Not exceed 500s"/><LineBreak/><Run Text="     Rest time: Not exceed 500s"/><LineBreak/><Run Text="     Count time: ~700-1000s"/><LineBreak/></TextBlock>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="6"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="85"  ><Run Text="     Suitable time for Fe-54"/><LineBreak/><Run Text="     (flux: 1x10^10, Mass: 0.005g)"/><LineBreak/><Run Text="     Irr time: Not exceed 1e+08s"/><LineBreak/><Run Text="     Rest time: Not exceed 1e+08s"/><LineBreak/><Run Text="     Count time: ~7E+08s"/><LineBreak/></TextBlock>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="7"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="96" Grid.RowSpan="4"  ><Run Text="     Suitable time for Na-23"/><LineBreak/><Run Text="     (flux: 1x10^10, Mass: 0.005g)"/><LineBreak/><Run Text="     Irr time: Not exceed 1.5e+05s"/><LineBreak/><Run Text="     Rest time: Not exceed 1.5e+05s"/><LineBreak/><Run Text="     Count time: ~3.5e+05s"/></TextBlock>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="9"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="96" Grid.RowSpan="4"  ><Run Text="     Suitable time for Ni-64"/><LineBreak/><Run Text="     (flux: 1x10^10, Mass: 0.005g)"/><LineBreak/><Run Text="     Irr time: Not exceed 2e+04s"/><LineBreak/><Run Text="     Rest time: Not exceed 2e+04s"/><LineBreak/><Run Text="     Count time: ~5e+04 - 6e+04s"/></TextBlock>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="2" Grid.Row="4"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="85"  ><Run Text="     Suitable time for Ca-48"/><LineBreak/><Run Text="     (flux: 1x10^10, Mass: 0.005g)"/><LineBreak/><Run Text="     Irr time: Not exceed 1500s"/><LineBreak/><Run Text="     Rest time: Not exceed 1500s"/><LineBreak/><Run Text="     Count time: ~3000-4000s"/><LineBreak/></TextBlock>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="2" Grid.Row="6"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="96" Grid.RowSpan="3"  ><Run Text="     Suitable time for Mg-26"/><LineBreak/><Run Text="     (flux: 1x10^10, Mass: 0.005g)"/><LineBreak/><Run Text="     Irr time: Not exceed 1500s"/><LineBreak/><Run Text="     Rest time: Not exceed 1500s"/><LineBreak/><Run Text="     Count time: ~3000-4000s"/><LineBreak/></TextBlock>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="2" Grid.Row="8"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" Height="96" Grid.RowSpan="3"  ><Run Text="     Suitable time for Sn-116"/><LineBreak/><Run Text="     (flux: 1x10^10, Mass: 0.005g)"/><LineBreak/><Run Text="     Irr time: Not exceed 2e+06s"/><LineBreak/><Run Text="     Rest time: Not exceed 2e+06s"/><LineBreak/><Run Text="     Count time: ~7e+06s"/><LineBreak/></TextBlock>
+
+                            <Border Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Background="#FFDDDDDD">
+                            </Border>
+                            <Border Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" Background="#FFDDDDDD">
+                            </Border>
+                            <Border Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3" Background="#FFDDDDDD">
+                            </Border>
+                            <Border Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="3" Background="#FFDDDDDD">
+                            </Border>
+                            <Border Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="3" Background="#FFDDDDDD">
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="4"  Background="#FFDDDDDD" Grid.ColumnSpan="2" Margin="0,0,205,0">
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="6"  Background="#FFDDDDDD" Grid.ColumnSpan="2" Margin="0,0,205,0">
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="8"  Background="#FFDDDDDD" Grid.ColumnSpan="2" Margin="0,0,205,0">
+                            </Border>
+                            <Border Grid.Column="1" Grid.Row="10"  Background="#FFDDDDDD" Grid.ColumnSpan="2" Margin="0,0,205,0">
+                            </Border>
+
+
+
+
+
+                        </Grid>
+                    </materialDesign:Card>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <materialDesign:Card 
+                        VerticalAlignment="Top" Margin="8 2 8 16"
+                        Width="420"   
+                        Height="340">
+                        <Grid VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                <TextBlock 
+                                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                Margin="20 16 16 2"
+                                Text="Nuclear Radiation"/>
+                            </StackPanel>
+                            <Border Grid.Column="0" Grid.Row="1" Background="#FFDDDDDD">
+                            </Border>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="3"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top"  >
+                                <Run Text="     กัมมันตภาพรังสี (radioactivity) เป็นกระบวนการที่เกิดจากความไม่เสถียร ของนิวเคลียส ทำให้มีการปลดปล่อยอนุภาค (particles) หรือ รังสีแม่เหล็กไฟฟ้า (radioactive radiation) ออกมา ซึ่งใน Neutron Activation Analysis รังสีแกมมาและรังสีเบต้าที่เกิดขึ้นมีความสำคัญ"/><LineBreak/>
+                            </TextBlock>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="4"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top"  >
+                                <Run Text="     Gamma-ray เกิดขึ้นเนื่องจากการเปลี่ยนแปลงชั้นระดับพลังงานของนิวเคลียส  ไปยังชั้นที่ต่ำกว่า ทำให้เกิดการปล่อยพลังงานออกมาในรูปของรังสีแกมมาที่มีค่าพลังงาน  เป็นค่าเฉพาะ "/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/Xgamma.png"
+                                Stretch="Uniform"
+                                Grid.Column="0" Grid.Row="5"
+                                Width="auto"  Margin="0,0,0,0"
+                                Height="40"/>
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="6"
+                                TextWrapping="Wrap"
+                                Margin="10,11,22,0"                              
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" >
+                                <Run Text="     Beta-ray เกิดขึ้นเนื่องจากแรงนิวเคลียร์อย่างอ่อน ซึ่งเป็นผลจากการเปลี่ยนแปลง นิวตรอนกลายไปเป็นโปรตอน"/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/Xbeta.png"
+                                Stretch="Uniform"
+                                Grid.Column="0" Grid.Row="7"
+                                Width="auto"  Margin="0,0,0,-5"
+                                Height="40"/>
+
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card 
+                        VerticalAlignment="Top" Margin="8 2 8 16"
+                        Width="420"   
+                        Height="360">
+                        <Grid VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="170"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                <TextBlock 
+                                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                Margin="20 16 16 2"
+                                Text="Neutrons Classification"/>
+                            </StackPanel>
+                            <Border Grid.Column="0" Grid.Row="1" Background="#FFDDDDDD">
+                            </Border>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="3"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top"  >
+                                <Run Text="     โดยแบ่งตาม kinetic energy ตามตารางดังต่อไปนี้"/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/table.png"
+                                Stretch="Uniform"
+                                Grid.Column="0" Grid.Row="4"
+                                Width="auto"  Margin="0,0,0,0"
+                                Height="auto"/>
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="5"
+                                TextWrapping="Wrap"
+                                Margin="10,-5,22,0"                              
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Center" >
+                                <Run Text="     ตารางแสดงการจำแนกประเภทของนิวตรอนตามค่าพลังงาน"/><LineBreak/>
+                            </TextBlock>
+                            <TextBlock
+                                Grid.Column="0" Grid.Row="6"
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"                              
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top" >
+                                <Run Text="     ในโครงงานวิจัยเราจะใช้ Thermal neutron ใน NAA  เนื่องจากส่วนมาก นิวตรอนที่ช้าส่งผลให้ความสามารถในการจับนิวตรอนสูง และเมื่อทำปฏิกิริยาแล้ว นิวเคลียสจะปลดปล่อยแกมมา หรือเบต้าออกมา"/><LineBreak/>
+                            </TextBlock>
+
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card 
+                        VerticalAlignment="Top" Margin="8 2 8 16"
+                        Width="420"   
+                        Height="550">
+                        <Grid VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="190"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                <TextBlock 
+                                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                Margin="20 16 16 2"
+                                Text="Neutron flux"/>
+                            </StackPanel>
+                            <Border Grid.Column="0" Grid.Row="1" Background="#FFDDDDDD">
+                            </Border>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="3"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top"  ><Run Text="     เป็นปริมาณของนิวตรอนที่สามารถเกิดอันตรกิริยาได้ที่เคลื่อนที่ผ่านพื้นที่หน้าตัดขนาดหนึ่งหน่วย พื้นที่ หน่วยของ neutron flux คือ (n. cm−2. sec−1 ) ซึ่งใน Thermal neutron activation analysis ต้องการ thermal neutron flux                        ในระดับ 10^9 − "/><Run Text="10"/><Run Text="^"/><Run Text="10 "/><Run Text="(n. cm−2. sec−1 )"/><LineBreak/>
+                            </TextBlock>
+                            <TextBlock 
+                                Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                Grid.Column="0" Grid.Row="4"
+                                Margin="20 16 16 2"
+                                Text="Neutron capture cross-sections"/>
+                            <Border Grid.Column="0" Grid.Row="5" Background="#FFDDDDDD">
+                            </Border>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="7"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top"  ><Run Text="     คือค่าโอกาส หรือภาคตัดขวางในการทำปฏิกิริยา (cross section) ระหว่างนิวตรอนกับวัสดุชิ้นนั้น ว่าที่พลังงานเท่านี้ มีโอกาสที่นิวตรอนจะถูกดูดกลืนเท่าใด ถือเป็นตัวแปรหนึ่งที่สำคัญของ NAA ซึ่งแต่ละไอโซโทปจะมีค่าที่แตกต่างกัน โดยจะมีหน่วยที่ปรากฏเป็นพื้นที่ในหน่วย 'barns' ซึ่ง 1 barn = 10^−24cm2  "/><LineBreak/>
+                            </TextBlock>
+                            <TextBlock        
+                                TextWrapping="Wrap"
+                                Margin="10,0,22,0"    
+                                Grid.Column="0" Grid.Row="8"
+                                Foreground="{DynamicResource MaterialDesignBodyLight}"
+                                VerticalAlignment="Top"  ><Run Text="     โดยโอกาสในการเกิดอันตรกิริยาของนิวตรอนจะขึ้นอยู่กับพลังงานของนิวตรอนและค่า Neutron capture cross-section  ซึ่งมีแนวโน้มที่จะลดลงเมื่อพลังงานเพิ่มขึ้นดังภาพ "/><LineBreak/>
+                            </TextBlock>
+                            <Image
+                                Source="Resources/Equation/Cs.png"
+                                Stretch="Uniform"
+                                Grid.Column="0" Grid.Row="9"
+                                Width="auto"  Margin="0,0,0,0"
+                                Height="auto"/>
+
+
+                        </Grid>
+                    </materialDesign:Card>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        </Grid>
+        </Viewbox>
+    </Grid>
+</UserControl>
