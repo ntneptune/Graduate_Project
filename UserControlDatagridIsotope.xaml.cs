@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.IO;
 
 namespace Interface_NAA
@@ -32,7 +21,7 @@ namespace Interface_NAA
 
         private void DataGrid_Initialized(object sender, EventArgs e)
         {
-            string Excelfile = @"C:\\code\\C#\\Project\\Interface NAA\\Interface NAA\\bin\\Debug\\net472\\Isotope data.csv";
+            string Excelfile = @"Isotope data.csv";
             string[] lines = File.ReadAllLines(Excelfile);
             lines = lines.ToList().GetRange(1, lines.Length - 1).ToArray();
             foreach (var line in lines)
