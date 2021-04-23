@@ -1,18 +1,21 @@
-﻿<UserControl x:Class="Interface_NAA.UserControlSolutionMenuItem"
+<UserControl x:Class="Interface_NAA.UserControlSolutionMenuItem"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Interface_NAA"
-             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" >
+
     <Grid>
-        <ListBoxItem x:Name="ListItemMenu" Content="{Binding Path=Header}" Padding="37 14" FontSize="15" Foreground="White"/>
+        <ListBoxItem x:Name="ListItemMenu" Content="{Binding Path=Header}"  Padding="37 14" FontSize="15" Foreground="White" IsSelected="True" PreviewMouseLeftButtonDown="ListItemMenu_PreviewMouseLeftButtonDown"/>
         <Expander x:Name="ExpanderMenu" Header="{Binding Path=Header}" IsExpanded="False" Width="210" HorizontalAlignment="Right" Background="{x:Null}" Foreground="White">
-            <ListView x:Name="ListMenu" ItemsSource="{Binding Path=SubItems}" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListMenu_SelectionChanged">
+            <ListView x:Name="ListMenu" ItemsSource="{Binding Path=SubItems}" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                 <ListView.ItemTemplate>
+                    
                     <DataTemplate>
-                        <TextBlock Text="{Binding Path=Name}" Padding="20 5"/>
+                        <TextBlock Text="{Binding Path=Name}" Tag="{Binding Path=Screen}" Padding="20 5"  
+                                   Width="210" Height="27"
+                                   PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown"/>
                     </DataTemplate> 
                 </ListView.ItemTemplate>
             </ListView>
