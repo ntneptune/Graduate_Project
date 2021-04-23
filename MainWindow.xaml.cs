@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-
+using System.Configuration;
 
 namespace Interface_NAA
 {
@@ -62,7 +62,7 @@ namespace Interface_NAA
                         //MessageBox.Show("HELP");
                         break;
                     case 4: //Github
-                        //MessageBox.Show("Github");
+                        System.Diagnostics.Process.Start("https://github.com/ntneptune/Graduate_Project");
                         break;
                     default:
                         MessageBox.Show("ERROR");
