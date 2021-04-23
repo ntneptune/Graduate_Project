@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Interface_NAA.Class;
 
 namespace Interface_NAA
@@ -34,9 +24,16 @@ namespace Interface_NAA
             this.DataContext = itemMenu;
         }
 
-        private void ListMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        
+        private void ListItemMenu_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _context.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
+            _context.SwitchScreen(((ItemMenu)((ListBoxItem)sender).DataContext).Screen);
+        }
+
+
+        private void TextBlock_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _context.SwitchScreen(((TextBlock)sender).Tag);
         }
     }
 }
